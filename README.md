@@ -105,9 +105,3 @@ Submit a pull request.
 📝 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-📧 Contact
-If you have any questions or suggestions, feel free to reach out:
-
-Email: support@welearn.com
-Website: WeLearn
-Feel free to customize it further based on your project specifics!
