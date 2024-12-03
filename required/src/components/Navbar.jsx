@@ -1,6 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import {  SignInButton, UserButton, useUser } from '@clerk/clerk-react'
 
 const Navbar = () => {
+  const { isSignedIn, user } = useUser();
   return (
     <nav className="block w-full max-w-screen-lg px-4 py-2 mx-auto bg-white bg-opacity-90 sticky top-3 shadow lg:px-8 lg:py-3 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
   <div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
@@ -14,22 +17,26 @@ const Navbar = () => {
     <div className="hidden lg:block">
       <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
         <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" className="flex items-center">Home</a>
+          <Link to="/" className="flex items-center">Home</Link>
         </li>
         <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" className="flex items-center">Courses</a>
+        <Link to="/course" className="flex items-center">Courses</Link>
         </li>
         <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" className="flex items-center">Articles</a>
+        <Link to="/article" className="flex items-center">Articles</Link>
         </li>
         <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" className="flex items-center">Support</a>
+        <Link to="/support" className="flex items-center">Support</Link>
         </li>
         {/* Sign Up Button */}
         <li>
           <a href="#signup" 
             className="inline-block px-6 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition">
-            Sign Up
+         {isSignedIn ? (
+           <UserButton/>
+          ) : (
+        <SignInButton/>
+      )}
           </a>
         </li>
       </ul>

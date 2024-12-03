@@ -1,27 +1,43 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Rj  from './components/Rj';
-import New  from './components/New';
-import New2  from './components/New2';
-import Car1  from './components/Car1';
-import Car2  from './components/Car2';
+import Hero from './components/Hero';
 import Footer from './components/Footer';
-
+import { BrowserRouter as Router,Route, Routes} from "react-router-dom" 
 import './App.css'; // Import the CSS fil
+import Article from './components/Article';
+import Course from './components/Course';
+import Support from './components/Support';
+import  Login from './components/Login'
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
+
 
 
 function App() {
   return (
     <>
-    
+      <Router>
       <Navbar />
-       <Rj/>
-       <New/>
-       <New2/>
-       <Car1/>
-       <Car2/>
-       <Footer/>
+      <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/article" element={<Article />} />
+          <Route path="/course" element={<Course />} />
+          <Route path="/support" element={<Support />} />
+        </Routes>
+      <SignedOut>
+          <Hero/>
+        </SignedOut>
+        <SignedIn>
+       
 
+        
+  
+        
+        <div className="footer">
+        
+        </div>
+        </SignedIn>
+        <Footer />
+      </Router>
     </>
   );
 }

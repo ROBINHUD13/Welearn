@@ -16,7 +16,7 @@ function New() {
         <div className="flex justify-center items-center mt-8 space-x-8">
           {/* Example Logos - Replace 'src' with the actual paths */}
           <img
-            src="/asset/Google"
+            src="/asset/Google.png"
             alt="Google"
             className="h-10 object-contain"
           />
